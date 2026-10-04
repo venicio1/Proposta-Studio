@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f6f8" />
+  <meta name="description" content="Crie propostas comerciais profissionais em poucos minutos." />
+  <title>Proposta Studio — Gerador de propostas comerciais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#editor" aria-label="Proposta Studio, início">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 7.5A2.5 2.5 0 0 1 10.5 5h11A2.5 2.5 0 0 1 24 7.5v17a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 8 24.5v-17Z"/><path d="M12 12h8M12 16h8M12 20h4"/></svg></span>
+        <span class="brand-name">proposta<span>studio</span></span>
+      </a>
+      <button class="workspace-switch" id="workspaceButton" type="button"><span class="workspace-avatar">VG</span><span class="workspace-copy"><strong>Meu espaço</strong><small>Plano gratuito</small></span><span class="chevrons">⌄</span></button>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-item" type="button" data-view="proposals"><span class="nav-icon">▤</span>Minhas propostas<span class="nav-count">1</span></button>
+        <button class="nav-item active" type="button" data-view="editor"><span class="nav-icon">✳</span>Nova proposta</button>
+        <button class="nav-item" type="button" data-view="templates"><span class="nav-icon">◉</span>Modelos</button>
+        <button class="nav-item" type="button" data-view="settings"><span class="nav-icon">⚙</span>Configurações</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Uma proposta que<br/>fecha negócios.</strong><p>Apresente seu trabalho com clareza e profissionalismo.</p><button class="help-link" id="helpButton" type="button">Dicas para começar <span>↗</span></button></div>
+        <button class="profile-button" id="profileButton" type="button"><span class="profile-avatar">VG</span><span><strong>Venício Gomes</strong><small>Perfil pessoal</small></span><span class="more">···</span></button>
+      </div>
+    </aside>
+
+    <main id="editor" class="main-content">
+      <header class="topbar"><div class="breadcrumbs"><span>Minhas propostas</span><span class="crumb-slash">/</span><strong>Nova proposta</strong><span class="draft-pill"><i></i> Rascunho</span></div><div class="top-actions"><span class="saved-status"><span class="saved-check">✓</span> Salvo automaticamente</span><button class="button button-light" id="themeButton" type="button" aria-label="Ativar modo escuro"><span id="themeIcon">☾</span><span class="theme-label">Modo escuro</span></button><button class="button button-light" id="shareButton"><span>↗</span> Compartilhar</button><button class="button button-primary" id="downloadButton"><span>↓</span> Baixar proposta</button><button class="mobile-menu" aria-label="Abrir menu">☰</button></div></header>
+
+      <div class="page-wrap">
+        <section class="workspace-view" id="workspaceView" hidden></section>
+        <div id="editorView">
+        <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> DOCUMENTO COMERCIAL <span class="eyebrow-dot">·</span> 01</div><h1>Vamos fechar <span>esse negócio.</span></h1><p>Preencha os detalhes e veja sua proposta ganhar forma em tempo real.</p></div><div class="heading-decoration" aria-hidden="true"><span class="deco-orbit orbit-one"></span><span class="deco-orbit orbit-two"></span><span class="deco-star">✳</span></div></div>
+
+        <div class="editor-layout">
+          <section class="form-panel" aria-label="Dados da proposta">
+            <div class="form-section">
+              <div class="section-heading"><span class="step-number">01</span><div><h2>Informações gerais</h2><p>O básico para identificar sua proposta.</p></div><span class="section-caret">⌃</span></div>
+              <div class="fields-grid">
+                <label class="field field-wide"><span>Título da proposta</span><input id="proposalTitle" value="Presença digital que gera resultados" maxlength="80" /></label>
+                <label class="field"><span>Número da proposta</span><div class="input-with-icon"><span class="input-prefix">#</span><input id="proposalNumber" value="2025-014" /></div></label>
+                <label class="field"><span>Validade</span><div class="input-with-icon"><input id="proposalValidity" type="date" value="2025-11-15" /><span class="input-icon">▦</span></div></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-heading"><span class="step-number">02</span><div><h2>Quem está envolvido?</h2><p>Apresente quem propõe e quem recebe.</p></div><span class="section-caret">⌃</span></div>
+              <div class="fields-grid">
+                <label class="field"><span>Seu nome ou empresa</span><input id="sellerName" value="Venício Gomes" /></label>
+                <label class="field"><span>E-mail de contato</span><input id="sellerEmail" type="email" value="contato@veniciogomes.com.br" /></label>
+                <label class="field field-wide"><span>Cliente ou empresa</span><input id="clientName" value="Studio Aurora" /></label>
+              </div>
+            </div>
+
+            <div class="form-section services-section">
+              <div class="section-heading"><span class="step-number">03</span><div><h2>O que você vai entregar?</h2><p>Descreva os serviços e o investimento.</p></div><span class="section-caret">⌃</span></div>
+              <div class="service-table-head"><span>SERVIÇO</span><span>VALOR</span><span></span></div>
+              <div id="serviceList" class="service-list"></div>
+              <button id="addService" class="add-service"><span>＋</span> Adicionar serviço</button>
+              <div class="total-row"><span>Investimento total</span><strong id="formTotal">R$ 0,00</strong></div>
+            </div>
+
+            <div class="form-section details-section">
+              <div class="section-heading"><span class="step-number">04</span><div><h2>Detalhes finais</h2><p>Alinhe prazo e condições do projeto.</p></div><span class="section-caret">⌃</span></div>
+              <div class="fields-grid">
+                <label class="field"><span>Prazo estimado</span><div class="input-with-icon"><input id="deliveryTime" value="15 dias úteis" /><span class="input-icon">◷</span></div></label>
+                <label class="field"><span>Forma de pagamento</span><select id="paymentTerms"><option>50% no início · 50% na entrega</option><option>À vista na aprovação</option><option>30% no início · 70% na entrega</option><option>Pagamento mensal</option></select></label>
+                <label class="field field-wide"><span>Mensagem para o cliente <em>opcional</em></span><textarea id="proposalMessage" rows="3">Obrigado pela oportunidade de apresentar esta proposta. Estou animado para construir algo incrível com vocês!</textarea></label>
+              </div>
+            </div>
+            <div class="form-footer"><span><span class="lock-icon">♧</span> Seus dados ficam salvos neste dispositivo.</span><button class="text-button" id="resetButton">Restaurar exemplo</button></div>
+          </section>
+
+          <aside class="preview-column" aria-label="Prévia do documento">
+            <div class="preview-toolbar"><div class="preview-label"><span class="live-dot"></span> PRÉVIA AO VIVO</div><button id="expandPreview" class="icon-button" title="Abrir prévia em tela cheia" aria-label="Abrir prévia em tela cheia">⛶</button></div>
+            <article class="proposal-paper" id="proposalPaper">
+              <div class="paper-top-accent"></div>
+              <div class="paper-content">
+                <header class="paper-header"><div class="paper-logo"><span class="paper-logo-icon">v.</span><span id="previewSeller">Venício Gomes</span></div><span class="paper-type">PROPOSTA<br/>COMERCIAL</span></header>
+                <div class="paper-rule"></div>
+                <div class="paper-meta"><span>PROPOSTA <strong id="previewNumber">#2025-014</strong></span><span>VÁLIDA ATÉ <strong id="previewValidity">15 nov 2025</strong></span></div>
+                <div class="paper-title-block"><div class="paper-kicker">UMA IDEIA, UM PRÓXIMO PASSO.</div><h2 id="previewTitle">Presença digital que gera resultados</h2><p>Preparada especialmente para<br/><strong id="previewClient">Studio Aurora</strong></p></div>
+                <div class="paper-intro"><p>Olá, <strong id="previewClientGreeting">Studio Aurora</strong>!<br/>Abaixo você encontra a proposta para tirar este projeto do papel.</p></div>
+                <div class="paper-services-title"><span>ESCOPO DO PROJETO</span><span>INVESTIMENTO</span></div>
+                <div id="previewServices" class="paper-services"></div>
+                <div class="paper-total"><span>INVESTIMENTO TOTAL</span><strong id="previewTotal">R$ 0,00</strong></div>
+                <div class="paper-terms"><div><span class="term-icon">◷</span><span><small>PRAZO ESTIMADO</small><strong id="previewDelivery">15 dias úteis</strong></span></div><div><span class="term-icon">↗</span><span><small>CONDIÇÕES</small><strong id="previewPayment">50% no início · 50% na entrega</strong></span></div></div>
+                <div class="paper-message" id="previewMessage">“Obrigado pela oportunidade de apresentar esta proposta. Estou animado para construir algo incrível com vocês!”</div>
+                <footer class="paper-footer"><span>Vamos fazer acontecer.</span><span id="previewEmail">contato@veniciogomes.com.br</span></footer>
+              </div>
+            </article>
+            <div class="preview-hint"><span>✦</span> Sua proposta está ficando incrível</div>
+          </aside>
+        </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
