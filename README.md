@@ -18,3 +18,7 @@ Uma ferramenta web que desenvolvi para facilitar a criação de propostas comerc
 O projeto foi feito com HTML, CSS e JavaScript, sem frameworks. Os dados ficam salvos localmente no navegador e não são enviados para um servidor.
 
 Para testar, abra `index.html` em um navegador. Depois, preencha a proposta e use **Baixar proposta** para imprimir ou salvar como PDF.
+
+<p align="center">
+  <img src="preview.png" alt="Tela do Proposta Studio" width="900">
+</p>
